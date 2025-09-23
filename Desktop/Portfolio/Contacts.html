@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dylan's Portfolio - Contacts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, color 0.3s;
+      background: white;
+      color: black;
+      margin: 0;
+    }
+
+    body.dark-mode {
+      background: black;
+      color: white;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      background: #333;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .card {
+      background: #222;
+      color: white;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .contact-info a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: grey;
+      padding: 12px 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      transition-duration: 0.3s;
+    }
+
+    button:hover {
+      background-color: #555;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1a1a1a;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contacts</h1>
+  </header>
+
+  <nav>
+    <a href="Dylan's Portfolio.html">Home</a>
+    <a href="AboutMe.html">About Me</a>
+    <a href="Projects.html">Projects</a>
+    <a href="Contacts.html">Contact</a>
+  </nav>
+
+  <section>
+    <div class="card contact-info">
+      <h2>Contact Information</h2>
+      <p><strong>Name:</strong> Dylan Duan</p>
+      <p><strong>Email:</strong> <a href="dylanduancanada@gmail.com">dylanduancanada@gmail.com</a></p>
+      <p><strong>Phone:</strong> 778 683 2929</p>
+      <p><strong>Social:</strong> <a href="https://www.instagram.com/dylan_duan2010/">Instagram</a> | <a href="https://github.com/Kiddo4993">GitHub</a></p>
+    </div>
+
+    <div class="card">
+      <h2>Send a Message</h2>
+      <form action="https://formspree.io/f/mwpreqpr" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <button onclick="toggleMode()">Toggle Dark/Light Mode</button> 
+      &copy; 2025 Dylan Duan
+    </p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+</html>

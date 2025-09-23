@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dylan's Portfolio - Projects</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    header {
+      background: #1a1a1a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    nav {
+      background: #333;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff9800;
+    }
+    section {
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-content h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #333;
+    }
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0.5rem 0 1rem;
+    }
+    .card-content a {
+      text-decoration: none;
+      background: black;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .card-content a:hover {
+      background: grey;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1a1a1a;
+      color: white;
+      margin-top: 2rem;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      color: black;
+    }
+    body.dark-mode {
+      background: black;
+      color: white;
+    }
+    button {
+      background-color: grey;
+      padding: 10px 20px;
+      margin: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      transition: 0.4s;
+    }
+    button:hover {
+      box-shadow: 0 12px 16px rgba(0,0,0,0.24), 
+                  0 17px 50px rgba(0,0,0,0.19);
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <h1>Projects</h1>
+  </header>
+
+  <nav>
+    <a href="Dylan's Portfolio.html">Home</a>
+    <a href="AboutMe.html">About Me</a>
+    <a href="Projects.html">Projects</a>
+    <a href="Contacts.html">Contact</a>
+  </nav>
+  *
+  <section>
+    <div class="projects-grid">
+      
+      <div class="card">
+        <img src="https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg" alt="Discord Bot">
+        <div class="card-content">
+          <h3>Ai Discord Bot</h3>
+          <p>Responds like a sassy friend.</p>
+          <a href="https://discord.com/channels/@me/1403639566006620222">Take a Gander?</a>
+        </div>
+      </div>
+
+      
+      <div class="card">
+        <img src="https://play-lh.googleusercontent.com/gnSC6s8-6Tjc4uhvDW7nfrSJxpbhllzYhgX8y374N1LYvWBStn2YhozS9XXaz1T_Pi2q" alt="Clash Royale API">
+        <div class="card-content">
+          <h3>Copy Decks</h3>
+          <p>Copy decks to clash royale.</p>
+          <a href="https://github.com/Kiddo4993/Clash-Royale-Website-with-API-KEYS">Why not try?</a>
+        </div>
+      </div>
+
+     
+      <div class="card">
+        <img src="https://aunoa.ai/wp-content/uploads/2024/05/tipos-de-chatbots.webp" alt="Java Chat Bot">
+        <div class="card-content">
+          <h3>Java Chat Bot</h3>
+          <p>Have fun talking to a virtual AI that needs your help.</p>
+          <a href="https://github.com/Kiddo4993/Chat-Bot-Java-">Help the community?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+  <footer>
+    <p>
+      <button onclick="toggleMode()">Toggle Dark/Light Mode</button> 
+      &copy; 2025 Dylan Duan
+    </p>
+  </footer>
+
+</body>
+</html>
