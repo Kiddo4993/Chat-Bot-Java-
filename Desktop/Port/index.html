@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dylan Duan — Software Engineer</title>
+    <meta name="description"
+        content="Portfolio of Dylan Duan — a high school software engineer building data-driven platforms, AI bots, and mobile apps. Python, Java, C++, Next.js, Swift." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+</head>
+
+<body>
+
+    <!-- Starfield Canvas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Camera Dial Navigation -->
+    <div class="dial-container" id="dialNav">
+        <div class="dial-lens">
+            <div class="dial-center"></div>
+            <div class="dial-ring" id="dialRing">
+                <div class="dial-item active" data-target="hero" style="--angle: 0deg;">Hero</div>
+                <div class="dial-item" data-target="about" style="--angle: 72deg;">About</div>
+                <div class="dial-item" data-target="projects" style="--angle: 144deg;">Projects</div>
+                <div class="dial-item" data-target="skills" style="--angle: 216deg;">Skills</div>
+                <div class="dial-item" data-target="contact" style="--angle: 288deg;">Contact</div>
+            </div>
+            <div class="dial-indicator"></div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- ===== HERO ===== -->
+        <section class="section hero" id="hero">
+            <div class="section-inner">
+                <p class="hero-greeting">// init__</p>
+                <h1 class="hero-name">Dylan Duan</h1>
+                <h2 class="hero-title">Software Engineer</h2>
+                <p class="hero-tagline">
+                    > Building data-driven platforms, AI-powered bots, and mobile apps.<br>
+                    > Passionate about hackathons, competitive programming, and VEX Robotics.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section class="section" id="about">
+            <div class="section-inner fade-in">
+                <div class="section-header">
+                    <p class="section-label">[01] ABOUT</p>
+                    <h2 class="section-title">Who I Am</h2>
+                </div>
+
+                <div class="about-content">
+                    <p class="raw-text">
+                        I'm a <strong>high school student</strong> and self-taught developer who loves turning complex
+                        problems into clean, elegant software. My journey started with Python and Java, and has since
+                        expanded into full-stack web development, iOS apps, and AI integrations.
+                    </p>
+                    <p class="raw-text">
+                        I compete in <strong>VEX Robotics</strong> with Team 77174A — Holy Airball! — where I built
+                        SparkVEX, a Bayesian performance rating engine used for data-driven alliance selection. Outside
+                        of robotics, you'll find me at <strong>hackathons</strong>, solving <strong>CTF
+                            challenges</strong>, or building tools that make people's lives a little easier.
+                    </p>
+
+                    <ul class="raw-list about-list mt-2">
+                        <li>> Robotics (VEX competitor & alliance strategist)</li>
+                        <li>> CTF & Hacking (Capture the Flag enthusiast)</li>
+                        <li>> Hackathons (Building under pressure, fast)</li>
+                        <li>> Mobile Dev (Swift & cross-platform apps)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section class="section" id="projects">
+            <div class="section-inner fade-in">
+                <div class="section-header">
+                    <p class="section-label">[02] PROJECTS</p>
+                    <h2 class="section-title">Featured Work</h2>
+                </div>
+
+                <div class="projects-list">
+
+                    <!-- Project 1: SparkVEX -->
+                    <div class="project-row fade-in">
+                        <div class="row-header">
+                            <h3 class="row-title">SparkVEX</h3>
+                            <div class="row-links">
+                                <a href="https://github.com/Kiddo4993/Spark-Vex-App" target="_blank"
+                                    rel="noopener">[SRC]</a>
+                                <a href="https://spark-vex-app.vercel.app" target="_blank" rel="noopener">[LIVE]</a>
+                            </div>
+                        </div>
+                        <p class="raw-text">
+                            Bayesian alliance engine for VEX Robotics. Custom statistical model that rates teams based
+                            on match performance, opponent strength, and partner contribution. Features tournament data
+                            import, alliance selection table, real-time chat, and a Kanban task board.
+                        </p>
+                        <p class="raw-tags">Next.js · TypeScript · PostgreSQL · Prisma · NextAuth</p>
+                    </div>
+
+                    <!-- Project 2: SaintThunderBird Tutoring -->
+                    <div class="project-row fade-in">
+                        <div class="row-header">
+                            <h3 class="row-title">SaintThunderBird Tutoring</h3>
+                            <div class="row-links">
+                                <a href="https://github.com/Kiddo4993/SaintThunderBirdTutoring" target="_blank"
+                                    rel="noopener">[SRC]</a>
+                            </div>
+                        </div>
+                        <p class="raw-text">
+                            Non-profit tutoring platform providing free education access for First Nations students.
+                            Features student and tutor dashboards, session management, Zoom integration for virtual
+                            sessions, and an admin approval workflow.
+                        </p>
+                        <p class="raw-tags">HTML · JavaScript · Node.js · CSS</p>
+                    </div>
+
+                    <!-- Project 3: Sanctum -->
+                    <div class="project-row fade-in">
+                        <div class="row-header">
+                            <h3 class="row-title">Sanctum</h3>
+                            <div class="row-links">
+                                <a href="https://github.com/Kiddo4993/Sanctum" target="_blank" rel="noopener">[SRC]</a>
+                            </div>
+                        </div>
+                        <p class="raw-text">
+                            Immersive Bible scrolling app with AI-generated verse meanings powered by GPT-4o,
+                            text-to-speech narration via ElevenLabs, friend system, group chats, and a smart algorithm
+                            that learns your preferences.
+                        </p>
+                        <p class="raw-tags">Swift · Supabase · Firebase · OpenAI · ElevenLabs</p>
+                    </div>
+
+                    <!-- Project 4: Discord AI Bot -->
+                    <div class="project-row fade-in">
+                        <div class="row-header">
+                            <h3 class="row-title">Discord AI Bot</h3>
+                            <div class="row-links">
+                                <a href="https://github.com/Kiddo4993/Discord-Bot-Imbued-With-AI-Claude-API-"
+                                    target="_blank" rel="noopener">[SRC]</a>
+                            </div>
+                        </div>
+                        <p class="raw-text">
+                            An innovative Discord bot powered by Claude AI that responds with personality and wit.
+                            Prompted to answer in a distinctive, characterful style — bringing AI conversation to
+                            Discord servers.
+                        </p>
+                        <p class="raw-tags">Python · Discord.py · Claude API</p>
+                    </div>
+
+                    <!-- Project 5: Clash Royale Deck Manager -->
+                    <div class="project-row fade-in">
+                        <div class="row-header">
+                            <h3 class="row-title">Clash Royale Deck Manager</h3>
+                            <div class="row-links">
+                                <a href="https://github.com/Kiddo4993/Clash-Royale-Website-with-API-KEYS"
+                                    target="_blank" rel="noopener">[SRC]</a>
+                            </div>
+                        </div>
+                        <p class="raw-text">
+                            Web application that integrates with the Clash Royale API to let players browse, analyze,
+                            and download competitive decks. Features real-time card data and deck management tools.
+                        </p>
+                        <p class="raw-tags">HTML · JavaScript · REST API</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS ===== -->
+        <section class="section" id="skills">
+            <div class="section-inner fade-in">
+                <div class="section-header">
+                    <p class="section-label">[03] SKILLS</p>
+                    <h2 class="section-title">Tech Stack</h2>
+                </div>
+
+                <div class="skills-raw">
+                    <div class="skill-col">
+                        <p class="col-head">// Languages</p>
+                        <ul class="raw-list">
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C++</li>
+                            <li>TypeScript</li>
+                            <li>JavaScript</li>
+                            <li>Swift</li>
+                            <li>Lua</li>
+                            <li>HTML / CSS</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-col">
+                        <p class="col-head">// Frameworks</p>
+                        <ul class="raw-list">
+                            <li>Next.js</li>
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>TailwindCSS</li>
+                            <li>Prisma ORM</li>
+                            <li>NextAuth.js</li>
+                            <li>Discord.py</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-col">
+                        <p class="col-head">// Tools & DBs</p>
+                        <ul class="raw-list">
+                            <li>Git / GitHub</li>
+                            <li>PostgreSQL</li>
+                            <li>Supabase</li>
+                            <li>Firebase</li>
+                            <li>Vercel / Neon</li>
+                            <li>OpenAI API</li>
+                            <li>Claude API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section class="section" id="contact">
+            <div class="section-inner fade-in">
+                <div class="section-header">
+                    <p class="section-label">[04] CONTACT</p>
+                    <h2 class="section-title">Get In Touch</h2>
+                </div>
+
+                <div class="contact-raw">
+                    <p class="raw-text">
+                        I'm always open to new opportunities, collaborations, or just a good conversation about tech.
+                        Feel free to reach out.
+                    </p>
+                    <ul class="raw-list mt-2">
+                        <li>> <a href="mailto:dylanduancanada@gmail.com" class="raw-link">dylanduancanada@gmail.com</a>
+                        </li>
+                        <li>> <a href="https://github.com/Kiddo4993" target="_blank" rel="noopener"
+                                class="raw-link">github.com/Kiddo4993</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <p>EOF. Designed & built by Dylan Duan · © 2026</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
