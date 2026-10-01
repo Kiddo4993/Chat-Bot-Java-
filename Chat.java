@@ -19,7 +19,8 @@ public class Chat {
         System.out.println("ChatBot: Hello! Type 'bye' to exit.");
         while (true) {
             System.out.print("You: ");
-            String userInput = scanner.nextLine().trim().toLowerCase();
+            String userInput = FaqFile.clean(scanner.nextLine()).toLowerCase();
+            if (userInput.isEmpty()) continue;
 
             if (userInput.equals("bye")) {
                 System.out.println("ChatBot: " + faq.getOrDefault("bye", "Goodbye!"));
@@ -35,9 +36,13 @@ public class Chat {
                     String answer = scanner.nextLine().trim().toLowerCase();
                     if (answer.equals("yes")) {
                         System.out.println("ChatBot: What should I say instead?");
-                        String newResponse = scanner.nextLine();
-                        faq.put(userInput, newResponse);
-                        System.out.println("ChatBot: Thanks! I've updated my response.");
+                        String newResponse = FaqFile.clean(scanner.nextLine());
+                        if (newResponse.isEmpty()) {
+                            System.out.println("ChatBot: No changes made.");
+                        } else {
+                            faq.put(userInput, newResponse);
+                            System.out.println("ChatBot: Thanks! I've updated my response.");
+                        }
                     } else {
                         System.out.println("ChatBot: Okay, I'll keep my response.");
                     }
@@ -51,12 +56,16 @@ public class Chat {
             } else {
                 // new input
                 System.out.println("ChatBot: I don't know how to respond to that. What should I say?");
-                String newResponse = scanner.nextLine();
-                faq.put(userInput, newResponse);
-                newlyLearned.add(userInput);
-                System.out.println("ChatBot: Got it! I'll remember that.");
-                saveFAQsToFile();
-                saveNewlyLearned();
+                String newResponse = FaqFile.clean(scanner.nextLine());
+                if (newResponse.isEmpty()) {
+                    System.out.println("ChatBot: Okay, maybe next time.");
+                } else {
+                    faq.put(userInput, newResponse);
+                    newlyLearned.add(userInput);
+                    System.out.println("ChatBot: Got it! I'll remember that.");
+                    saveFAQsToFile();
+                    saveNewlyLearned();
+                }
             }
         }
     }
@@ -75,8 +84,8 @@ public class Chat {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("=", 2);
-                if (parts.length == 2) {
+                String[] parts = FaqFile.parseLine(line);
+                if (parts != null && !parts[0].trim().isEmpty()) {
                     faq.put(parts[0].trim().toLowerCase(), parts[1].trim());
                 }
             }
@@ -88,7 +97,7 @@ public class Chat {
     private static void saveFAQsToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FAQ_FILE))) {
             for (Map.Entry<String, String> entry : faq.entrySet()) {
-                writer.write(entry.getKey() + "=" + entry.getValue());
+                writer.write(FaqFile.formatLine(entry.getKey(), entry.getValue()));
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -103,7 +112,8 @@ public class Chat {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                newlyLearned.add(line.trim().toLowerCase());
+                String key = FaqFile.clean(line).toLowerCase();
+                if (!key.isEmpty()) newlyLearned.add(key);
             }
         } catch (IOException e) {
             System.out.println("ChatBot: Failed to load newly learned data.");
