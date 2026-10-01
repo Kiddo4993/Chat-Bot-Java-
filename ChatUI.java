@@ -162,8 +162,8 @@ public class ChatUI extends JFrame {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("=", 2);
-                if (parts.length == 2) {
+                String[] parts = FaqFile.parseLine(line);
+                if (parts != null && !parts[0].trim().isEmpty()) {
                     faq.put(parts[0].trim().toLowerCase(), parts[1].trim());
                 }
             }
@@ -175,7 +175,7 @@ public class ChatUI extends JFrame {
     private void saveFAQsToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FAQ_FILE))) {
             for (Map.Entry<String, String> entry : faq.entrySet()) {
-                writer.write(entry.getKey() + "=" + entry.getValue());
+                writer.write(FaqFile.formatLine(entry.getKey(), entry.getValue()));
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -190,7 +190,8 @@ public class ChatUI extends JFrame {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                newlyLearned.add(line.trim().toLowerCase());
+                String key = FaqFile.clean(line).toLowerCase();
+                if (!key.isEmpty()) newlyLearned.add(key);
             }
         } catch (IOException e) {
             appendBotMessage("Failed to load newly learned inputs.");
